@@ -9,7 +9,7 @@ def get_todo(db: Session, todo_id: int):
     return db.query(models.ToDo).filter(models.ToDo.id == todo_id).first()
 
 def create_todo(db: Session, todo: schemas.TodoCreate):
-    db_todo = models.ToDo(**todo.dict())
+    db_todo = models.ToDo(title=todo.title, completed=False)  # ✅ only this line!
     db.add(db_todo)
     db.commit()
     db.refresh(db_todo)
