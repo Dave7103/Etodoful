@@ -3,10 +3,10 @@ from sqlalchemy.orm import Session
 import models, schemas
 
 def get_todos(db: Session):
-    return db.query(models.ToDo).all()
+    return db.query(models.Todo).all()
 
 def get_todo(db: Session, todo_id: int):
-    return db.query(models.ToDo).filter(models.ToDo.id == todo_id).first()
+    return db.query(models.Todo).filter(models.Todo.id == todo_id).first()
 
 def create_todo(db: Session, todo: schemas.TodoCreate):
     db_todo = models.ToDo(title=todo.title, completed=False)  # ✅ only this line!
