@@ -13,9 +13,7 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # CORS settings
-origins = [
-    "https://dave7103.github.io",  # Make sure your frontend domain is listed
-]
+origins = [*]
 
 # CORS (for React frontend)
 app.add_middleware(
