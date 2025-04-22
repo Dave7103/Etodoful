@@ -32,4 +32,4 @@ def delete_todo(db: Session, todo_id: int):
     return db_todo
 
 def filter_todos(db: Session, completed: bool):
-    return db.query(models.Todo).filter(models.ToDo.completed == completed).all()
+    return db.query(models.Todo).filter(models.Todo.completed == completed).all()
