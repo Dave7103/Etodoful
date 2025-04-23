@@ -1,5 +1,5 @@
 // src/api.js
-const API_URL = 'https://appdevfastapi-9w0o.onrender.com'; // Update with your backend URL
+const API_URL = 'https://etodofull.onrender.com'; // Update with your backend URL
 
 export const getTodos = async (completed) => {
   let url = `${API_URL}/todos`;
