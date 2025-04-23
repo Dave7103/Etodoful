@@ -40,7 +40,7 @@ def read_todos(db: Session = Depends(get_db)):
 def read_todo(todo_id: int, db: Session = Depends(get_db)):
     todo = crud.get_todo(db, todo_id)
     if not todo:
-        raise HTTPException(status_code=404, detail="ToDo not found")
+        raise HTTPException(status_code=404, detail="Todo not found")
     return todo
 
 @app.get("/todos/filter/{completed}", response_model=list[schemas.TodoInDB])
@@ -58,4 +58,4 @@ def update_todo(todo_id: int, todo: schemas.TodoUpdate, db: Session = Depends(ge
 @app.delete("/todos/{todo_id}")
 def delete_todo(todo_id: int, db: Session = Depends(get_db)):
     crud.delete_todo(db, todo_id)
-    return {"detail": "ToDo deleted"}
+    return {"detail": "Todo deleted"}
